@@ -1,0 +1,66 @@
+server:
+  port: 8080   # Single entry point — the only port exposed to the frontend
+
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+
+      # ── Centralized CORS ──────────────────────────────────────────────────
+      # CORS is configured here only. Downstream services have CORS disabled.
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:3000"   # Vite dev server
+              - "http://localhost:5173"   # Vite alternative port
+            allowed-methods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
+            allowed-headers: "*"
+            allow-credentials: true
+            max-age: 3600
+
+      # ── Route table ───────────────────────────────────────────────────────
+      # Order matters for overlapping patterns — more specific paths first.
+      routes:
+
+        # auth-service  (Spring MVC, port 8081)
+        # Handles: login, register, refresh, logout, and the legacy /api/vendors/me endpoint.
+        - id: auth-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/auth/**, /api/vendors/**
+
+        # vendor-service  (Spring MVC, port 8082)
+        # Handles: GET /api/vendor/me  and  GET /api/vendor/kitchen
+        - id: vendor-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/vendor/**
+
+# ── JWT ─────────────────────────────────────────────────────────────────────
+# Must be identical to the secret used by auth-service and vendor-service so
+# the gateway can validate tokens without a network round-trip.
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+    com.thalicloud: DEBUG
