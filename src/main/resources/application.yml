@@ -45,6 +45,18 @@ spring:
           predicates:
             - Path=/api/vendor/**
 
+        # order-service  (Spring MVC, port 8083)
+        # Handles: dashboard summary, recent orders, orders list, order status update
+        - id: order-service-dashboard
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/dashboard/**
+
+        - id: order-service-orders
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/orders/**
+
 # ── JWT ─────────────────────────────────────────────────────────────────────
 # Must be identical to the secret used by auth-service and vendor-service so
 # the gateway can validate tokens without a network round-trip.
