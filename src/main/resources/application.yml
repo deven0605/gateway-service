@@ -57,6 +57,23 @@ spring:
           predicates:
             - Path=/api/orders/**
 
+        # meal-plan-service  (Spring MVC, port 8084)
+        # Handles: meal plans CRUD, day menus, meal types catalog, menu options
+        - id: meal-plan-service-plans
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/meal-plans/**
+
+        - id: meal-plan-service-types
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/meal-types/**
+
+        - id: meal-plan-service-options
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/menu-options/**
+
 # ── JWT ─────────────────────────────────────────────────────────────────────
 # Must be identical to the secret used by auth-service and vendor-service so
 # the gateway can validate tokens without a network round-trip.
