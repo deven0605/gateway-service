@@ -67,7 +67,7 @@ spring:
         - id: meal-plan-service-types
           uri: http://localhost:8084
           predicates:
-            - Path=/api/meal-types/**
+            - Path=/api/mealTypes/**
 
         - id: meal-plan-service-options
           uri: http://localhost:8084
