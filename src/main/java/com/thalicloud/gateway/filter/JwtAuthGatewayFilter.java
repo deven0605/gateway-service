@@ -31,6 +31,7 @@ import java.util.Set;
  *   POST /api/auth/register
  *   POST /api/auth/refresh
  *   POST /api/auth/logout
+ *   GET  /api/kitchens, /api/kitchens/**, /api/search  (public kitchen discovery, SRS M3)
  */
 @Slf4j
 @Component
@@ -41,6 +42,11 @@ public class JwtAuthGatewayFilter implements GlobalFilter, Ordered {
 
     // All /api/auth/** requests are forwarded as-is — auth-service handles its own security.
     private static final String AUTH_PATH_PREFIX = "/api/auth/";
+
+    // Public kitchen discovery endpoints — vendor-service permits these with no auth too.
+    private static final String KITCHENS_PATH = "/api/kitchens";
+    private static final String KITCHENS_PATH_PREFIX = "/api/kitchens/";
+    private static final String SEARCH_PATH = "/api/search";
 
     // Health check / internal paths that bypass JWT validation.
     private static final Set<String> OPEN_PATHS = Set.of("/actuator/health");
@@ -56,8 +62,10 @@ public class JwtAuthGatewayFilter implements GlobalFilter, Ordered {
             return chain.filter(exchange);
         }
 
-        // Auth and health paths need no gateway-level token check.
-        if (path.startsWith(AUTH_PATH_PREFIX) || OPEN_PATHS.contains(path)) {
+        // Auth, health, and public kitchen-discovery paths need no gateway-level token check.
+        if (path.startsWith(AUTH_PATH_PREFIX) || OPEN_PATHS.contains(path)
+                || path.equals(KITCHENS_PATH) || path.startsWith(KITCHENS_PATH_PREFIX)
+                || path.equals(SEARCH_PATH)) {
             return chain.filter(exchange);
         }
 

@@ -53,6 +53,13 @@ spring:
           predicates:
             - Path=/api/vendor/**
 
+        # vendor-service  (Spring MVC, port 8082) — public kitchen discovery (SRS M3)
+        # Handles: GET /api/kitchens, GET /api/kitchens/{id}, GET /api/search
+        - id: vendor-service-kitchens
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/kitchens, /api/kitchens/**, /api/search
+
         # order-service  (Spring MVC, port 8083)
         # Handles: dashboard summary, recent orders, orders list, order status update
         - id: order-service-dashboard
