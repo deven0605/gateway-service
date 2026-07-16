@@ -47,6 +47,7 @@ public class JwtAuthGatewayFilter implements GlobalFilter, Ordered {
     private static final String KITCHENS_PATH = "/api/kitchens";
     private static final String KITCHENS_PATH_PREFIX = "/api/kitchens/";
     private static final String SEARCH_PATH = "/api/search";
+    private static final String ADDONS_PATH = "/api/addOns";
 
     // Health check / internal paths that bypass JWT validation.
     private static final Set<String> OPEN_PATHS = Set.of("/actuator/health");
@@ -65,7 +66,7 @@ public class JwtAuthGatewayFilter implements GlobalFilter, Ordered {
         // Auth, health, and public kitchen-discovery paths need no gateway-level token check.
         if (path.startsWith(AUTH_PATH_PREFIX) || OPEN_PATHS.contains(path)
                 || path.equals(KITCHENS_PATH) || path.startsWith(KITCHENS_PATH_PREFIX)
-                || path.equals(SEARCH_PATH)) {
+                || path.equals(SEARCH_PATH) || path.equals(ADDONS_PATH)) {
             return chain.filter(exchange);
         }
 
@@ -83,6 +84,7 @@ public class JwtAuthGatewayFilter implements GlobalFilter, Ordered {
         }
 
         String token = bearer.substring(7);
+        System.out.println("Token received: " + token); // Debugging line to print the token
         if (!jwtService.isTokenValid(token)) {
             log.warn("GATEWAY 401 — invalid or expired token: {} {}", method, path);
             return writeError(exchange, "TOKEN_EXPIRED", "Access token is invalid or has expired");

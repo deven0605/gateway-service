@@ -1,0 +1,78 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.thalicloud:gateway-service >-------------------
+[INFO] Building gateway-service 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.5:run (default-cli) > test-compile @ gateway-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ gateway-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ gateway-service ---
+[INFO] Changes detected - recompiling the module! :input tree
+[INFO] Compiling 5 source files with javac [debug release 17] to target\classes
+[INFO] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ gateway-service ---
+[INFO] skip non existing resourceDirectory D:\Meal_Provider\gateway-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ gateway-service ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug release 17] to target\test-classes
+[INFO] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[INFO] 
+[INFO] <<< spring-boot:3.2.5:run (default-cli) < test-compile @ gateway-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.5:run (default-cli) @ gateway-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-07-11T22:52:36.321+05:30  INFO 8260 --- [gateway-service] [           main] c.thalicloud.gateway.GatewayApplication  : Starting GatewayApplication using Java 21.0.11 with PID 8260 (D:\Meal_Provider\gateway-service\target\classes started by lokha in D:\Meal_Provider\gateway-service)
+2026-07-11T22:52:36.324+05:30 DEBUG 8260 --- [gateway-service] [           main] c.thalicloud.gateway.GatewayApplication  : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-07-11T22:52:36.325+05:30  INFO 8260 --- [gateway-service] [           main] c.thalicloud.gateway.GatewayApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-07-11T22:52:37.879+05:30  INFO 8260 --- [gateway-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2f57080f-b727-3179-a5ba-a04250110eff
+2026-07-11T22:52:39.126+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2026-07-11T22:52:39.126+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2026-07-11T22:52:39.127+05:30  INFO 8260 --- [gateway-service] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2026-07-11T22:52:39.452+05:30  INFO 8260 --- [gateway-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-07-11T22:52:39.941+05:30  INFO 8260 --- [gateway-service] [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
+2026-07-11T22:52:40.027+05:30  INFO 8260 --- [gateway-service] [           main] c.thalicloud.gateway.GatewayApplication  : Started GatewayApplication in 4.386 seconds (process running for 5.205)
+2026-07-11T22:53:14.379+05:30  WARN 8260 --- [gateway-service] [ctor-http-nio-2] c.t.gateway.filter.JwtAuthGatewayFilter  : GATEWAY 401 — missing Authorization header: GET /api/addOns
+2026-07-11T22:53:14.442+05:30  WARN 8260 --- [gateway-service] [ctor-http-nio-3] c.t.gateway.filter.JwtAuthGatewayFilter  : GATEWAY 401 — missing Authorization header: GET /api/addOns
+2026-07-11T22:54:24.989+05:30 DEBUG 8260 --- [gateway-service] [ctor-http-nio-4] c.t.gateway.filter.JwtAuthGatewayFilter  : GATEWAY — token valid, forwarding: GET /api/addOns
+2026-07-11T22:55:29.469+05:30  WARN 8260 --- [gateway-service] [ctor-http-nio-3] c.t.gateway.filter.JwtAuthGatewayFilter  : GATEWAY 401 — missing Authorization header: GET /api/addOns
+2026-07-11T22:56:07.694+05:30 DEBUG 8260 --- [gateway-service] [ctor-http-nio-3] c.t.gateway.filter.JwtAuthGatewayFilter  : GATEWAY — token valid, forwarding: GET /api/addOns

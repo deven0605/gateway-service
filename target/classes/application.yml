@@ -16,6 +16,8 @@ spring:
             allowed-origins:
               - "http://localhost:3000"   # Vite dev server
               - "http://localhost:5173"   # Vite alternative port
+              - "http://localhost:8081"   # Expo web dev server (default Metro port)
+              - "http://localhost:19006"  # Expo web dev server (legacy default port)
             allowed-methods:
               - GET
               - POST
@@ -88,6 +90,11 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/api/menu-options/**
+
+        - id: meal-plan-service-addons
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/addOns
 
 # ── JWT ─────────────────────────────────────────────────────────────────────
 # Must be identical to the secret used by auth-service and vendor-service so
