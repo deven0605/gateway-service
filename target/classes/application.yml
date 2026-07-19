@@ -55,6 +55,13 @@ spring:
           predicates:
             - Path=/api/vendor/**
 
+        # delivery-service  (Spring MVC, port 8086)
+        # Handles: M2 registration/KYC onboarding — /api/delivery/partners/me/**
+        - id: delivery-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/api/delivery/**
+
         # vendor-service  (Spring MVC, port 8082) — public kitchen discovery (SRS M3)
         # Handles: GET /api/kitchens, GET /api/kitchens/{id}, GET /api/search
         - id: vendor-service-kitchens
