@@ -62,6 +62,14 @@ spring:
           predicates:
             - Path=/api/delivery/**
 
+        # delivery-service — STOMP/WebSocket endpoint for GPS publish (FR-3.3).
+        # ws:// scheme so Gateway proxies the upgrade instead of treating it as
+        # a plain HTTP route.
+        - id: delivery-service-ws
+          uri: ws://localhost:8086
+          predicates:
+            - Path=/ws/**
+
         # vendor-service  (Spring MVC, port 8082) — public kitchen discovery (SRS M3)
         # Handles: GET /api/kitchens, GET /api/kitchens/{id}, GET /api/search
         - id: vendor-service-kitchens
